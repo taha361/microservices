@@ -9,13 +9,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './testfile.sh'
+                sh 'docker-compose up -d'
                 echo 'Testing..'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'kubectl get services'
+                sh 'kubectl'
                 echo 'Deploying....'
             }
         }
