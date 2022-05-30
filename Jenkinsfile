@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'docker-compose up -d'
+                sh 'docker-compose down'
                 echo 'Testing..'
             }
         }
