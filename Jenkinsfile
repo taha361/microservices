@@ -15,7 +15,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'kubectl'
+                sh 'docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 containerpfa.azurecr.io/azure-vote-front:v1'
+                sh 'docker push containerpfa.azurecr.io/azure-vote-front:v1'
                 echo 'Deploying....'
             }
         }
