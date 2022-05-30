@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'kubectl get nodes '
+                sh 'kubectl get services'
                 echo 'Deploying....'
             }
         }
