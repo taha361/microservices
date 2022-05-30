@@ -9,7 +9,6 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'docker-compose down'
                 echo 'Testing..'
             }
         }
