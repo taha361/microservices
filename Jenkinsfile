@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                sh './testfile.sh'
                 echo 'Testing..'
             }
         }
