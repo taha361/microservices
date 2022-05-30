@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'sudo docker-compose up -d'
+                sh 'docker images'
                 echo 'Testing..'
             }
         }
