@@ -28,7 +28,7 @@ pipeline {
                  AzureCredentials = credentials('AzureAccount')
             }
             steps {
-                echo "secret file $AzureCredentials"
+                //echo "secret file $AzureCredentials"
                 sh 'az aks get-credentials --resource-group kubernetesgroup --name pfaaks'
                 sh 'az aks update -n pfaaks -g kubernetesgroup --attach-acr containerpfa'
                 sh 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
