@@ -17,6 +17,7 @@ pipeline {
                  SECRET_FILE_ID = credentials('ACR')
             }
             steps {
+                echo "secret file $SECRET_FILE_ID"
                 sh 'docker push containerpfa.azurecr.io/azure-vote-front:v2'
                 echo 'Deploying....'
             }
