@@ -35,7 +35,7 @@ pipeline {
                 sh 'az aks update -n pfaaks -g kubernetesgroup --attach-acr containerpfa'
                 sh 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
                 
-                echo 'Deploying...'
+                echo 'Deploying..'
             }
         }
     }
