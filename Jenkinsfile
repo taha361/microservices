@@ -19,7 +19,8 @@ pipeline {
             steps {
                 echo "secret file $SECRET_FILE_ID"
                 sh 'az  login '
-                //sh 'docker push containerpfa.azurecr.io/azure-vote-front:v2'
+                sh 'az acr login'
+                sh 'docker push containerpfa.azurecr.io/azure-vote-front:v2'
                 echo 'Deploying....'
             }
         }
