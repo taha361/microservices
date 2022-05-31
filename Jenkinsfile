@@ -10,16 +10,17 @@ pipeline {
         }
         stage('Build Docker Images') {
             steps {
-                sh 'docker-compose up '
-                sh 'docker-compose down'
+                sh 'docker build -t containerpfa.azurecr.io/azure-vote-front:v3 ./azure-vote'
+                //sh 'docker-compose down'
                 echo 'Building..'
             }
         }
         stage('Push Docker Images to ACR') {
             steps {
                 sh 'az acr login --name containerpfa'
-                sh 'docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 containerpfa.azurecr.io/azure-vote-front:v2'
-                sh 'docker push containerpfa.azurecr.io/azure-vote-front:v2'
+                //sh 'docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 containerpfa.azurecr.io/azure-vote-front:v2'
+                sh 'docker push containerpfa.azurecr.io/azure-vote-front:v3'
+                sh 'docker rm image containerpfa.azurecr.io/azure-vote-front:v3'
                 echo 'pushing..'
             }
         }
