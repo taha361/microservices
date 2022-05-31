@@ -18,7 +18,7 @@ pipeline {
             }
             steps {
                 echo "secret file $AzureCredentials"
-                sh 'az  login -u $AzureCredentials -p $AzureCredentials_PSW '
+                sh 'az  login -u tahayassine.benameur@insat.u-carthage.tn -p Iphone3gs '
                 sh 'az acr login --name containerpfa'
                 //sh 'docker push containerpfa.azurecr.io/azure-vote-front:v2'
                 echo 'Deploying....'
