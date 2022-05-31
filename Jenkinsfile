@@ -20,7 +20,7 @@ pipeline {
                 sh 'az acr login --name containerpfa'
                 //sh 'docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 containerpfa.azurecr.io/azure-vote-front:v2'
                 sh 'docker push containerpfa.azurecr.io/azure-vote-front:v3'
-                sh 'docker rm image containerpfa.azurecr.io/azure-vote-front:v3'
+                sh 'docker rmi containerpfa.azurecr.io/azure-vote-front:v3'
                 echo 'pushing..'
             }
         }
