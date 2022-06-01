@@ -3,7 +3,8 @@ pipeline {
 
     stages {
         stage('Azure Login') {
-                 AzureCredentials = credentials('AzureAccount')
+            environment {
+                AzureCredentials = credentials('AzureAccount')
             }
             steps {
                 sh 'az  login -u $AzureCredentials_USR -p $AzureCredentials_PSW '
