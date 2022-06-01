@@ -31,7 +31,7 @@ pipeline {
             }
             steps {
                 //echo "secret file $AzureCredentials"
-                sh 'az aks get-credentials --resource-group kubernetesgroup --name pfaaks'
+                //sh 'az aks get-credentials --resource-group kubernetesgroup --name pfaaks'
                 //sh 'az aks update -n pfaaks -g kubernetesgroup --attach-acr containerpfa'
                 sh 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
                 sh 'kubectl set image deployment azure-vote-front azure-vote-front=containerpfa.azurecr.io/azure-vote-front:latest'
