@@ -20,7 +20,7 @@ pipeline {
                 sh 'az acr login --name containerpfa'
                 //sh 'docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 containerpfa.azurecr.io/azure-vote-front:v2'
                 //sh 'az acr repository delete --name containerpfa --image azure-vote-front:v3 --yes'
-                sh 'docker push containerpfa.azurecr.io/azure-vote-front'
+                sh 'docker push containerpfa.azurecr.io/azure-vote-front:latest'
                 //sh 'docker rmi containerpfa.azurecr.io/azure-vote-front:v3'
                 echo 'pushing..'
             }
@@ -32,8 +32,9 @@ pipeline {
             steps {
                 //echo "secret file $AzureCredentials"
                 sh 'az aks get-credentials --resource-group kubernetesgroup --name pfaaks'
-                sh 'az aks update -n pfaaks -g kubernetesgroup --attach-acr containerpfa'
+                //sh 'az aks update -n pfaaks -g kubernetesgroup --attach-acr containerpfa'
                 sh 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
+                sh 'kubectl set image deployment azure-vote-front azure-vote-front=containerpfa.azurecr.io/azure-vote-front:latest'
                 
                 echo 'Deploying..'
             }
