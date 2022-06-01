@@ -36,7 +36,7 @@ pipeline {
                 sh 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
                 sh 'kubectl set image deployment azure-vote-front azure-vote-front=containerpfa.azurecr.io/azure-vote-front:latest'
                 
-                echo 'Deploying..'
+                echo 'Deploying...'
             }
         }
     }
